@@ -1,0 +1,104 @@
+$primary-color: #ffdd57;
+$hover-color: #ff5733;
+$text-color: #333;
+$background-color: #f9f9f9;
+$product-background: white;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+header {
+  background: $primary-color; 
+  padding: 20px 0;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: $text-color;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+
+      li {
+        margin: 0 15px;
+
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-weight: bold;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $hover-color; 
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  background: url('https://images.pexels.com/photos/1586947/pexels-photo-1586947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+  padding: 60px 0;
+  color: white;
+  text-align: center;
+  height: 500px;
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+
+  .product {
+    background: $product-background;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 300px; 
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.5s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .description {
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $hover-color; // Cor do preço
+    }
+  }
+}

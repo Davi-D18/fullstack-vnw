@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: blueviolet;
+  font-weight: 600;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  height: 100vh;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body header {
+  margin-bottom: 10px;
+}
+
+.caixas {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.caixas .caixa {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.caixas .caixa .badge {
+  position: absolute;
+  background-color: rgb(238, 133, 13);
+  width: 115px;
+  height: 20px;
+  margin-bottom: 4rem;
+  border-radius: 7px;
+  z-index: 999;
+  animation: animation 2.5s infinite cubic-bezier(0.55, -0.24, 0.68, 1.06);
+}
+
+@keyframes animation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(62px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}/*# sourceMappingURL=style.css.map */
