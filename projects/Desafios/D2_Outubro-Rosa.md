@@ -11,22 +11,6 @@ O objetivo deste desafio era desenvolver uma página seguindo esses critérios:
 - HTML
 - SCSS
 
-## Funcionalidades
-- Layout responsivo para dispositivos móveis. (Em desenvolvimento)
-- Seções explicativas sobre a campanha do Outubro Rosa.
-
 ## Links
 - [Repositório do Projeto](https://github.com/Davi-D18/D2_Outubro-rosa)
 - [Deploy](https://davi-d18.github.io/D2_Outubro-Rosa)
-
-## Como Executar
-1. Clone o repositório.
-2. Abra o arquivo `index.html` no navegador para visualizar a página.
-
----
-
-## Sobre o Autor
-
-**Luiz Davi (LD)**  
-Desenvolvedor Front-end e Estudante de Programação  
-

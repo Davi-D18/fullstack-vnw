@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Notas</title>
+    <style>
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Estilo geral */
+      body {
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .input-group input:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      button {
+        width: 100%;
+        position: relative;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #resultado {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form class="container">
+      <h1>Simulador de Notas</h1>
+
+      <div class="input-group">
+        <label for="nota1">Nota 1:</label>
+        <input
+          type="number"
+          id="nota1"
+          placeholder="Digite a primeira nota"
+          min="0"
+          max="10"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="nota2">Nota 2:</label>
+        <input
+          type="number"
+          id="nota2"
+          placeholder="Digite a segunda nota"
+          min="0"
+          max="10"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="nota3">Nota 3:</label>
+        <input
+          type="number"
+          id="nota3"
+          placeholder="Digite a terceira nota"
+          min="0"
+          max="10"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="nota4">Nota 4:</label>
+        <input
+          type="number"
+          id="nota4"
+          placeholder="Digite a quarta nota"
+          min="0"
+          max="10"
+        />
+      </div>
+
+      <button>
+        <div class="spinner"></div>
+        Calcular Média
+      </button>
+
+      <p id="resultado"></p>
+    </form>
+
+    <script>
+      const form = document.querySelector("form");
+      const p_Resultado = document.querySelector("#resultado");
+      const button = document.querySelector("button");
+      const spinner = document.querySelector(".spinner");
+      let resultadoMedia;
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        p_Resultado.innerHTML = "";
+
+        spinner.style.display = "inline-block";
+        button.style.backgroundColor = "#024a97";
+        button.style.color = "transparent";
+
+        let notas = [];
+        let inputNumero = 1;
+
+        for (let i = 0; i <= 3; i++) {
+          notas[i] = parseFloat(
+            document.querySelector(`#nota${inputNumero}`).value
+          );
+          console.log(notas[i]);
+          inputNumero++;
+        }
+
+        calcularMedia(notas);
+
+        setTimeout(() => {
+          spinner.style.backgroundColor = "#007bff";
+          spinner.style.display = "none";
+          button.style.color = "white";;
+          exibirResultado(resultadoMedia);
+          form.reset();
+        }, 2000);
+
+      });
+
+      function calcularMedia(notas) {
+        const resultado =
+          notas.reduce((soma, valorAtual) => soma + valorAtual) / notas.length;
+
+        resultadoMedia = resultado;
+      }
+
+      function exibirResultado(resultado) {
+        p_Resultado.innerHTML = `
+          <span class="resultadoMedia">Média: ${resultado}</span>
+        `;
+      }
+    </script>
+  </body>
+</html>
